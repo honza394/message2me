@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to the chatroom #{@user.username}"
       redirect_to root_path
     else
-      flash.now[:error] = "User already exists, user Log in form"
+      flash.now[:error] = "User already exists, use Log in form"
       render 'sessions/new'
       # redirect_to login_path
     end
