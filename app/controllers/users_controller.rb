@@ -17,6 +17,28 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = current_user
+  end
+
+  def update
+    @user = current_user
+    if @user.update(user_params)
+      flash[:success] = "Your account was updated successfully"
+      redirect_to root_path
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @user = current_user
+    @user.destroy
+    session[:user_id] = nil
+    flash[:danger] = "User and all messages created by user have been deleted"
+    redirect_to login_path
+  end
+
   private
 
   def user_params

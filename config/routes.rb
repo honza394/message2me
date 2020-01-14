@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'
   post 'signup', to: 'users#create'
   get 'edit', to: 'users#edit'
-  post 'edit', to: 'users#update'
+  post 'update', to: 'users#update'
+  delete 'update', to: 'users#destroy'
 
   mount ActionCable.server, at: '/cable'
 end
